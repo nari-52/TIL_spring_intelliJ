@@ -2,21 +2,21 @@ package hello.hellospring.service;
 
 import hello.hellospring.domain.Member;
 import hello.hellospring.repository.MemberRepository;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Optional;
 
-
+@Transactional
 public class MemberService {
 
     // test 코드와 중복되지 않도록
     private final MemberRepository memberRepository;
 
-
     public MemberService(MemberRepository memberRepository) {
+
         this.memberRepository = memberRepository;
     }
-
 
     /*
         회원가입 비즈니스 메소드 만들기

@@ -1,8 +1,14 @@
 package hello.hellospring.domain;
 
+import javax.persistence.*;
+
+@Entity
 public class Member {
 
+    @Id @GeneratedValue(strategy = GenerationType.IDENTITY) // DB가 알아서 생성
     private Long id;
+
+    // @Column(name = "username") // 이걸 써주면 오류가 나는구나ㅠㅠ
     private String name;
 
 
