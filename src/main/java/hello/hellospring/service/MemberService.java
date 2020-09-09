@@ -23,6 +23,7 @@ public class MemberService {
     */
     // 회원가입
     public Long join(Member member) {
+
         // 같은 이름이 있는 중복 회원 X
         /*Optional<Member> result = memberRepository.findByName(member.getName());
         // result.orElseGet(member1); // 값이 있으면 꺼내고 없으면 method 실행하라
@@ -30,11 +31,13 @@ public class MemberService {
             throw new IllegalStateException("이미 존재하는 회원입니다.");
         });*/
 
-        // 위와 같은 코드
         validateDuplicateMember(member); // 중복 회원 검증
 
         memberRepository.save(member); // 검증 통과 시 저장
         return member.getId();
+
+
+
 
     }
 
